@@ -282,3 +282,4 @@ PixelMatrix Bitmap::toPixelMatrix()
 void Bitmap::fromPixelMatrix(const PixelMatrix & values)
 {
 	pixels = values;
+}

@@ -32,6 +32,10 @@ void Shape::setsize( std::vector < std::vector < Pixel > > &s)
 {
     size = s;
 }
+void Shape::getsize(std::vector < std::vector < Pixel > > &s)
+{
+    s = size;
+}
 int Shape::getsides()
 {
     return sides;
@@ -114,7 +118,7 @@ void Shape::recalibrate()
         degree /= 2;
         if( sides % 8 == 0)//fix math
         {
-            /*for( int j=width; j > -width/2.0; j--)
+            for( int j=width; j > -width/2.0; j--)
             {
                 for( int k=width; k > -width/2.0; k--)
                 {
@@ -123,62 +127,80 @@ void Shape::recalibrate()
                         size[x-((i/100)*length)-(length/2)+j][y+k] = color;
                     }
                     x+=(length/2);
+
                     for(int i=0; i<=100; i++)
                     {
-                        size[x+((i/100)*(length/2) +j][y+((i/100)*(length * std::sqrt(3)) +k] = color;
+                        size[x+((i/100)*(length*std::sin(degree/2))) +j][y+((i/100)*(length * std::cos(degree/2))) +k] = color;
                     }
-                    x+=(length/2);
-                    y+=(length * std::sqrt(3)) ;
+                    x+=(length*std::sin(degree/2));
+                    y+=(length*std::cos(degree/2)) ;
+
                     for(int i=0; i<=100; i++)
                     {
-                        size[x-((i/100)*(length/2) +j][y+((i/100)*(length * std::sqrt(3)) +k] = color;
+                        size[x+j][y+((i/100)*length)+k] = color;
                     }
-                    x-=(length/2);
-                    y+=(length * std::sqrt(3));
+                    y+=length;
+
+                    for(int i=0; i<=100; i++)
+                    {
+                        size[x-((i/100)*(length*std::sin(degree/2))) +j][y+((i/100)*(length*std::cos(degree/2))) +k] = color;
+                    }
+                    x-=(length*std::sin(degree/2));
+                    y+=(length*std::cos(degree/2));
+
                     for(int i=0; i<=100; i++)
                     {
                         size[x-((i/100)*length)+j][y+k] = color;
                     }
                     x-=length;
-                    for(int i=0; i<=100; i++)
-                    {
-                        size[x-((i/100)*(length/2) +j][y-((i/100)*(length * std::sqrt(3)) +k] = color;
-                    }
-                    x-=(length/2);
-                    y-=(length * std::sqrt(3)) ;
 
                     for(int i=0; i<=100; i++)
                     {
-                        size[x+((i/100)*(length/2) +j][y-((i/100)*(length * std::sqrt(3)) +k] = color;
+                        size[x-((i/100)*(length*std::sin(degree/2))) +j][y-((i/100)*(length*std::cos(degree/2))) +k] = color;
                     }
-                    x+=2(length/2);
-                    y+=(length * std::sqrt(3)) ;
+                    x-=(length*std::sin(degree/2));
+                    y-=(length*std::cos(degree/2)) ;
+
+                    for(int i=0; i<=100; i++)
+                    {
+                        size[x+j][y-((i/100)*length)+k] = color;
+                    }
+                    y-=length;
+
+                    for(int i=0; i<=100; i++)
+                    {
+                        size[x+((i/100)*(length*std::sin(degree/2))) +j][y-((i/100)*(length*std::cos(degree/2))) +k] = color;
+                    }
+                    x+=(length*std::sin(degree/2))+length/2;
+                    y+=(length*std::cos(degree/2));
                 }
-            }*/
+            }
         }
-        else if (sides % 7 == 0)//fix math
+        else if (sides % 7 == 0)//done
         {
-           /* for( int j=width; j > -width/2.0; j--)
+            for( int j=width; j > -width/2.0; j--)
             {
                 for( int k=width; k > -width/2.0; k--)
                 {
                     for(int i=0; i<=100; i++)
                     {
-                        size[x-((i/100)*length)-(length/2)+j][y+k] = color;
+                        size[x+((i/100)*(length*std::sin(degree)))+j][y+(i/100)*(length+std::cos(degree))+k] = color;
                     }
-                    x+=(length/2);
+
+                    x+=length*std::sin(degree);
+                    y+=length*std::cos(degree);
                     for(int i=0; i<=100; i++)
                     {
-                        size[x+((i/100)*(length/2) +j][y+((i/100)*(length * std::sqrt(3)) +k] = color;
+                        size[x+((i/100)*(length*std::cos(180-(180-(90+degree)+(degree))))) +j][y+((i/100)*((length*std::sin(180-(180-(90+degree)+(degree)))))) +k] = color;
                     }
-                    x+=(length/2);
-                    y+=(length * std::sqrt(3)) ;
+                    x+=(length*std::cos(180-(180-(90+degree)+(degree))));
+                    y+=(length*std::sin(180-(180-(90+degree)+(degree)))) ;
                     for(int i=0; i<=100; i++)
                     {
-                        size[x-((i/100)*(length/2) +j][y+((i/100)*(length * std::sqrt(3)) +k] = color;
+                        size[x-((i/100)*((length*std::cos(180-2*degree)))) +j][y+((i/100)*((length*std::sin(180-2*degree)))) +k] = color;
                     }
-                    x-=(length/2);
-                    y+=(length * std::sqrt(3));
+                    x-=((length*std::cos(180-2*degree)));
+                    y+=((length*std::sin(180-2*degree)));
                     for(int i=0; i<=100; i++)
                     {
                         size[x-((i/100)*length)+j][y+k] = color;
@@ -186,19 +208,26 @@ void Shape::recalibrate()
                     x-=length;
                     for(int i=0; i<=100; i++)
                     {
-                        size[x-((i/100)*(length/2) +j][y-((i/100)*(length * std::sqrt(3)) +k] = color;
+                        size[x-((i/100)*((length*std::cos(180-2*degree)))) +j][y-((i/100)*((length*std::sin(180-2*degree)))) +k] = color;
                     }
-                    x-=(length/2);
-                    y-=(length * std::sqrt(3)) ;
-
+                    x-=((length*std::cos(180-2*degree)));
+                    y-=((length*std::sin(180-2*degree)));
                     for(int i=0; i<=100; i++)
                     {
-                        size[x+((i/100)*(length/2)) +j][y-((i/100)*(length * std::sqrt(3))) +k] = color;
+                        size[x+((i/100)*(length*std::cos(180-(180-(90+degree)+(degree))))) +j][y-((i/100)*((length*std::sin(180-(180-(90+degree)+(degree)))))) +k] = color;
                     }
-                    x+=2*(length/2);
-                    y+=(length * std::sqrt(3));
+                    x+=(length*std::cos(180-(180-(90+degree)+(degree))));
+                    y-=(length*std::sin(180-(180-(90+degree)+(degree)))) ;
+                    for(int i=0; i<=100; i++)
+                    {
+                        size[x+((i/100)*(length*std::sin(degree)))+j][y-(i/100)*(length+std::cos(degree))+k] = color;
+                    }
+
+                    x+=length*std::sin(degree);
+                    y-=length*std::cos(degree);
+                    
                 }
-            }*/
+            }
         }
         else if (sides % 6 == 0)//done
         {
@@ -208,7 +237,7 @@ void Shape::recalibrate()
                 {
                     for(int i=0; i<=100; i++)
                     {
-                        size[x-((i/100)*length)-(length/2)+j][y+k] = color;
+                        size[x+((i/100)*length)-(length/2)+j][y+k] = color;
                     }
                     x+=(length/2);
                     for(int i=0; i<=100; i++)

@@ -31,7 +31,7 @@ class Shape
     int getsides();
     int getlength();
     Pixel getcolor();
-    std::vector < std::vector < Pixel > > getfinal();
+    void getsize(std::vector < std::vector < Pixel > > &);
     Shape();
     Shape(int , int , int, Pixel , Pixel , std::vector < std::vector < Pixel > > &);
 };

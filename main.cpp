@@ -1,4 +1,5 @@
 #include "shape.h"
+#include "bitmap.h"
 
 using namespace std;
 
@@ -51,13 +52,18 @@ int main()
             }
         }
 
-    }while(reply == "done" || reply == "Done");
+    }while(reply != "done" && reply != "Done");
     width = (1/100)* length;
     size.resize(3*length);
     for(int i = 0; i<size.size(); i++)
     {
         size[i].resize(3*length);
     }
+    Shape pic(length,sides,width,color,color2,size);
+    pic.getsize(size);
+    Bitmap end;
+    end.fromPixelMatrix(size);
+    end.save("output.bmp");
     return 0;
 }
 
@@ -82,11 +88,11 @@ int number(string reply)
         {
             cout << "Next # of sides\n";
             cin >> num;
-            if(num <= 3 || num >= 8);
+            if(num <= 3 && num >= 8);
             {
                 cout << "Error invalid # of sides need to be between 3 and 8 sides\n";
             }
-        }while(num <= 3 || num >= 8);
+        }while(num <= 3 && num >= 8);
     }
     return num;
 
@@ -107,7 +113,7 @@ Pixel color3(string reply)
         }
         else if(reply == "back")
         {
-            cout << "Chose a polygon color. you can choose from red, green, blue, black, white, yellow, orange, and purple, type the color you want\n";
+            cout << "Chose a background color. you can choose from red, green, blue, black, white, yellow, orange, and purple, type the color you want\n";
         }
         cin >> choice;
         if( choice == "red" ||choice == "green" ||choice == "blue" ||choice == "black" ||choice == "white" ||choice == "yellow" ||choice =="orange" ||choice =="purple")

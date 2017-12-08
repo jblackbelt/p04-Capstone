@@ -122,7 +122,7 @@ void Shape::recalibrate()
         degree /= 2;
         if( 8 % sides  == 0)//fix math
         {
-                    x-= length/2;
+                    x-= (length/2);
                     for(double i=0; i<=100; i++)
                     {
                         size[x-((i/100)*length)][y] = color;
@@ -224,7 +224,7 @@ void Shape::recalibrate()
         }
         else if (6 % sides  == 0)//done
         {
-                    x-=length/2;
+                    x-=(length/2);
                     for(double i=0; i<=100; i++)
                     {
                         size[x+((i/100)*length)][y] = color;
@@ -258,7 +258,7 @@ void Shape::recalibrate()
                     {
                         size[x+((i/100)*(length/2)) ][y-((i/100)*(length * std::sqrt(3))) ] = color;
                     }
-                    x+=2*(length/2);
+                    x+=(length/2);
                     y+=(length * std::sqrt(3)) ;
         }
         else if (5 % sides   == 0)//done
@@ -296,7 +296,7 @@ void Shape::recalibrate()
         }
         else if (4 % sides== 0)//done
         {
-                    x-=length/2;
+                    x-=(length/2);
                     for(double i=0; i<=100; i++)
                     {
                         size[x+((i/100)*length)][y] = color;

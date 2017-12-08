@@ -120,7 +120,7 @@ void Shape::recalibrate()
         double degree = (sides-2) * 180;//find degrees in the shape
         degree /= sides;//find degrees per point
         degree /= 2;
-        if( sides % 8 == 0)//fix math
+        if( 8 % sides  == 0)//fix math
         {
                     x-= length/2;
                     for(double i=0; i<=100; i++)
@@ -175,7 +175,7 @@ void Shape::recalibrate()
                     x+=(length*std::sin(degree/2));
                     y+=(length*std::cos(degree/2));
                 }
-        else if (sides % 7 == 0)//done
+        else if (7 % sides == 0)//done
         {
                     for(double i=0; i<=100; i++)
                     {
@@ -222,7 +222,7 @@ void Shape::recalibrate()
                     y-=length*std::cos(degree);
                     
         }
-        else if (sides % 6 == 0)//done
+        else if (6 % sides  == 0)//done
         {
                     x-=length/2;
                     for(double i=0; i<=100; i++)
@@ -261,7 +261,7 @@ void Shape::recalibrate()
                     x+=2*(length/2);
                     y+=(length * std::sqrt(3)) ;
         }
-        else if (sides % 5 == 0)//done
+        else if (5 % sides   == 0)//done
         {
                     for(double i=0; i<=100; i++)
                     {
@@ -294,7 +294,7 @@ void Shape::recalibrate()
                     y-=std::pow(std::asin((std::pow(std::sin(length), 2)*degree/2)/99), 2) ;
                     
         }
-        else if (sides % 4 == 0)//done
+        else if (4 % sides== 0)//done
         {
                     x-=length/2;
                     for(double i=0; i<=100; i++)
@@ -319,7 +319,7 @@ void Shape::recalibrate()
                     x+=(.5*length);
                     y-=(length);
         }
-        else if (sides % 3 == 0)//done
+        else if (3 % sides  == 0)//done
         {
                     for(double i=0; i<=100; i++)
                     {

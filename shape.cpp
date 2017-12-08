@@ -122,9 +122,10 @@ void Shape::recalibrate()
         degree /= 2;
         if( sides % 8 == 0)//fix math
         {
+                    x-= length/2;
                     for(double i=0; i<=100; i++)
                     {
-                        size[x-((i/100)*length)-(length/2)][y] = color;
+                        size[x-((i/100)*length)][y] = color;
                     }
                     x+=(length/2);
 
@@ -171,7 +172,7 @@ void Shape::recalibrate()
                     {
                         size[x+((i/100)*(length*std::sin(degree/2))) ][y-((i/100)*(length*std::cos(degree/2))) ] = color;
                     }
-                    x+=(length*std::sin(degree/2))+length/2;
+                    x+=(length*std::sin(degree/2));
                     y+=(length*std::cos(degree/2));
                 }
         else if (sides % 7 == 0)//done
@@ -223,9 +224,10 @@ void Shape::recalibrate()
         }
         else if (sides % 6 == 0)//done
         {
+                    x-=length/2;
                     for(double i=0; i<=100; i++)
                     {
-                        size[x+((i/100)*length)-(length/2)][y] = color;
+                        size[x+((i/100)*length)][y] = color;
                     }
                     x+=(length/2);
                     for(double i=0; i<=100; i++)
@@ -249,7 +251,7 @@ void Shape::recalibrate()
                     {
                         size[x-((i/100)*(length/2)) ][y-((i/100)*(length * std::sqrt(3))) ] = color;
                     }
-                    x-=(length/2);
+                   
                     y-=(length * std::sqrt(3)) ;
 
                     for(double i=0; i<=100; i++)
@@ -294,9 +296,10 @@ void Shape::recalibrate()
         }
         else if (sides % 4 == 0)//done
         {
+                    x-=length/2;
                     for(double i=0; i<=100; i++)
                     {
-                        size[x+((i/100)*length)-(.5*length)][y] = color;
+                        size[x+((i/100)*length)][y] = color;
                     }
                     x+=(.5*length);
                     for(double i=0; i<=100; i++)

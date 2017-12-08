@@ -83,6 +83,10 @@ Shape::Shape()
         sides = s;
         length = l;
         width = w;
+        if ( w == 0)
+        {
+            width = 1;
+        }
         color = p1;
         color2 = p2;
         size = s2;

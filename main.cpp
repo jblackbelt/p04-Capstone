@@ -140,8 +140,8 @@ Pixel color3(string reply)
               else if( choice == "white" )
               {
                 end.red = 255;
-                end.green == 255;
-                end.blue == 255;
+                end.green = 255;
+                end.blue = 255;
                 break;
               }
               else if( choice == "yellow" )

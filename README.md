@@ -1,4 +1,5 @@
 # p04-Capstone 
+##### FYI code doesn't work but still turning it in for the work that i did. was supposed to output a regular shape with between triangle & octogan, with a specifed color, on a specified background color, with a specified size. had it that the shape showed up but were wrong shape so but when i edited it all the shape disapeared so eh?
 ## input / output
 -----------------
 ### input/ output is used in main.cpp lines[28-55](/main.cpp#L28), [70-97](/main.cpp#L70), and [101-168](/main.cpp#L101)

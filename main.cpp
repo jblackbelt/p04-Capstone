@@ -27,7 +27,7 @@ int main()
     //cin >> color2;
     do
     {
-        cout << "If you would like to edit a part type length for leg length, side for # of sides, poly for polygon color, back background color, or if you are done type done\n";
+        cout << "If you would like to edit a part type length for leg lengtn, side for # of sides,\n poly for polygon color, back background color, or if you are done type done\n";
         cin >> reply;
         if(reply == "length"|| reply == "side")
         {

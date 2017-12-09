@@ -120,7 +120,7 @@ void Shape::recalibrate()
         double degree = (sides-2) * 180;//find degrees in the shape
         degree /= sides;//find degrees per point
         degree /= 2;
-        if( sides == 8 )//fix math
+        if( sides == 8 )//done
         {
                     x-= (length/2);
                     for(double i=0; i<=100; i++)

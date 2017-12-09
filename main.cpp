@@ -76,7 +76,7 @@ int number(string reply)
         {
             cout << "First lets start with leg length\n";
             cin >> num;
-            if(num < 1);
+            if(num < 1)
             {
                 cout << "Error invalid length need to be at least 1\n";
             }
@@ -88,7 +88,7 @@ int number(string reply)
         {
             cout << "Next # of sides\n";
             cin >> num;
-            if(num <= 3 && num >= 8);
+            if(num <= 3 && num >= 8)
             {
                 cout << "Error invalid # of sides need to be between 3 and 8 sides\n";
             }

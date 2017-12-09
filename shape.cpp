@@ -81,7 +81,7 @@ Shape::Shape()
     Shape::Shape(int s, int l, int w, Pixel p1, Pixel p2, std::vector < std::vector < Pixel > > &s2)
     {
         sides = s;
-        length = l*25;
+        length = l*10;
         width = w;
         if ( w == 0)
         {
